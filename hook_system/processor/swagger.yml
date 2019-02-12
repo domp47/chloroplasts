@@ -1,0 +1,67 @@
+swagger: "2.0"
+info:
+  description: "This is the Hooks API Backend"
+  version: "1.0.0"
+  title: "Hook API"
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /submit: # Path for submit request
+    post:
+      tags:
+        - "Submit" #Header group for swagger page
+      summary: Submits a submission
+      operationId: submit.submission # Where the package should look for the function to called
+                                     # for example this will look in a file called submit.py
+                                     # with a function submission to call when a request is made
+      produces: # what the request returns 
+        - text/plain 
+      responses:
+        200:
+          description: Submission Received
+      parameters: # List of parameters that the request has
+        - name: userID
+          in: query
+          description: The User's ID
+          required: true
+          type: string
+
+        - name: email
+          in: query
+          description: The Email to Notify
+          required: true
+          type: string
+
+        # NOTE: only one body parameter per route
+        - name: data
+          in: body
+          description: The source code to check
+          required: false #TODO change to true
+          schema:
+            type: string #TODO change to tarball data
+
+  /results:
+    post:
+      tags:
+        - "Results"
+      summary: Gets results from server
+      operationId: result.fetch
+      produces:
+        - text/plain #TODO change to XML
+      responses:
+        200:
+          description: Result Data
+      parameters:
+        - name: userID
+          in: query
+          description: The User's ID
+          required: true
+          type: string
+        
+        - name: jobID
+          in: query
+          description: The Job to return
+          required: true
+          type: string
