@@ -40,8 +40,7 @@ paths:
         - name: data
           in: formData
           description: The source code to check
-          required: false #TODO change to true
-          # schema:
+          required: true
           type: file
 
   /results:
@@ -51,7 +50,7 @@ paths:
       summary: Gets results from server
       operationId: result.fetch
       produces:
-        - text/plain #TODO change to XML
+        - text/plain
       responses:
         200:
           description: Result Data
