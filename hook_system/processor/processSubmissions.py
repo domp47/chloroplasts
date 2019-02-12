@@ -1,20 +1,25 @@
 from submission import Submission
 from match import Match
 from typing import List
+import threading
+
 
 class ProcessSubmissions():
+    mutex = threading.Lock()
+    submissionQueue = []
 
-    def __init__(self):
-        self.submissionQueue = []
+    @staticmethod
+    def addToQueue(sub: Submission):
+        return True, "1456", "10 Minutes"
 
-    def addToQueue(self, sub: Submission) -> bool:
-        return True
-
-    def processQueue(self):
+    @staticmethod
+    def processQueue():
         return
 
-    def __sendEmail(self, emailAddr: str, msg: str) -> bool:
+    @staticmethod
+    def __sendEmail(emailAddr: str, msg: str) -> bool:
         return True
     
-    def __generateResult(self, matches: List[Match]) -> str:
+    @staticmethod
+    def __generateResult(matches: List[Match]) -> str:
         return "<results></results>"

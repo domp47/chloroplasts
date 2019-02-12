@@ -6,4 +6,5 @@ class Submission():
         self.currentYear = []
         self.excludedWork = []
         self.emailAddr = emailAddr
+        self.jobId = None
 
