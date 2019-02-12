@@ -21,6 +21,8 @@ paths:
       responses:
         200:
           description: Submission Received
+      consumes:
+        - multipart/form-data      
       parameters: # List of parameters that the request has
         - name: userID
           in: query
@@ -36,11 +38,11 @@ paths:
 
         # NOTE: only one body parameter per route
         - name: data
-          in: body
+          in: formData
           description: The source code to check
           required: false #TODO change to true
-          schema:
-            type: string #TODO change to tarball data
+          # schema:
+          type: file
 
   /results:
     post:
