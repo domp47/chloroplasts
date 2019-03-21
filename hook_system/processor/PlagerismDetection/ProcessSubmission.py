@@ -1,11 +1,11 @@
 from typing import List, Dict, Tuple
-from JavaParser import JavaParser
-from JavaLexer import JavaLexer
-from JavaParserVisitor import JavaParserVisitor
+from Java.JavaParser import JavaParser
+from Java.JavaLexer import JavaLexer
+from Java.JavaParserVisitor import JavaParserVisitor
 from antlr4 import *
 from collections import defaultdict
 
-import JavaSyntax
+import Java.JavaSyntax as JavaSyntax
 
 class AnHash:
     startLine: int = -1
