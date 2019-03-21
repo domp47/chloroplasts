@@ -1,11 +1,17 @@
+from PlagiarismDetection.JavaParser import JavaParser
+from PlagiarismDetection.JavaLexer import JavaLexer
+from PlagiarismDetection.JavaParserVisitor import JavaParserVisitor
+
+from PlagiarismDetection.CPP14Parser import CPP14Parser
+from PlagiarismDetection.CPP14Lexer import CPP14Lexer
+from PlagiarismDetection.CPP14Visitor import CPP14Visitor
+
 from typing import List, Dict, Tuple
-from Java.JavaParser import JavaParser
-from Java.JavaLexer import JavaLexer
-from Java.JavaParserVisitor import JavaParserVisitor
 from antlr4 import *
 from collections import defaultdict
 
-import Java.JavaSyntax as JavaSyntax
+import PlagiarismDetection.JavaSyntax as JavaSyntax
+import PlagiarismDetection.CPP14Syntax as CPP14Syntax
 
 class AnHash:
     startLine: int = -1
@@ -16,12 +22,6 @@ class AnHash:
 class StrippedFile:
     filename: str
     data: str
-
-class Submission:
-    studentHash: str #Comes from folder of submission
-    filename: str 
-    lineStart: int
-    lineEnd: int
 
 class Match:
     subList: List[Submission] = []
